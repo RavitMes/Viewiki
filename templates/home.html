@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<title>VieWiki-Tracker</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+        <a href="{{ url_for('home') }}" class="w3-bar-item w3-button"> Home </a>
+        <!-- Float links to the right. Hide them on small screens -->
+        <div class="w3-right w3-hide-small">
+          <a href="{{ url_for('login') }}" class="w3-bar-item w3-button"> Log in</a>
+          <a href="{{ url_for('register') }}" class="w3-bar-item w3-button">Register</a>
+            <a href="{{ url_for('information') }}" class="w3-bar-item w3-button">Info</a>
+        </div>
+      </div>
+    </div>
+
+
+    <!--flash-->
+    <div class="container" style="min-height:100% width:80%">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-warning alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            {{message}}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    {% block body %}{% endblock %}
+    </div>
+
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='main.css') }}"></script>
+
+    <!-- Header -->
+    <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+      <img class="w3-image" src="/static/cherry6.jpg" alt="Architecture" width="1500" height="800">
+      <div class="w3-display-middle w3-margin-top w3-center">
+        <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>VieWiki-Tracker </b></span> <span class="w3-hide-small w3-text-light-grey">Wikipedia Report</span></h1>
+      </div>
+    </header>
+
+
+      <!-- About Section -->
+      <div class="w3-container w3-padding-32" id="about">
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
+        <p>VieWiki-Tracker is a website which creates real-time analytical dashboard on the views number of Wikipedia Pages of interest,
+            and summarizes the change of views number over time.
+        </p>
+      </div>
+
+
+    <!-- Footer -->
+    <footer class="w3-center w3-black w3-padding-16">
+    <p>Created by Ravit Mesika</p>
+    </footer>
+
+</body>
+</html>

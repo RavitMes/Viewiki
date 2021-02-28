@@ -1,0 +1,13 @@
+*.csv
+*.idea
+*.vs
+/__pycache__
+/__pycache__/**
+*.log
+*.json
+README.txt
+*.ipynb
+*.ipynb_checkpoints
+*.log
+*.png
+*.jpg

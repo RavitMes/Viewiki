@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<title>VieWiki-Tracker</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+        <a href="{{ url_for('home') }}" class="w3-bar-item w3-button"> Home </a>
+        <!-- Float links to the right. Hide them on small screens -->
+        <div class="w3-right w3-hide-small">
+          <a href="{{ url_for('login') }}" class="w3-bar-item w3-button"> Log in</a>
+          <a href="{{ url_for('register') }}" class="w3-bar-item w3-button">Register</a>
+            <a href="{{ url_for('information') }}" class="w3-bar-item w3-button">Info</a>
+        </div>
+      </div>
+    </div>
+
+
+    <!--flash-->
+    <div class="container" style="min-height:100% width:80%">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-warning alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            {{message}}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    {% block body %}{% endblock %}
+    </div>
+
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='main.css') }}"></script>
+
+    <!-- Header -->
+    <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+      <img class="w3-image" src="/static/cherry6.jpg" alt="Architecture" width="1500" height="800">
+      <div class="w3-display-middle w3-margin-top w3-center">
+          <div class="w3-display-middle w3-margin-top w3-center">
+               <div class="w3-container w3-padding-32" id="contact" style="background-color: white">
+                   <legend class="border-bottom mb-4">Fage Format</legend>
+                      <div class="w3-row-padding w3-grayscale">
+                            </div>
+                      </div>
+               </div>
+          </div>
+      </div>
+    </header>
+
+    <div class="w3-display-middle w3-margin-top w3-center">
+        <div class="w3-container w3-padding-32" id="contact" style="background-color: white">
+            <h3>Data Format</h3>
+            <p> Upload csv file, containing 3 columns: CATEGORY, WIKI_PAGE_URL, PAGE_INTERLINK
+                <h1> </h1>
+                <b> CATEGORY </b> - can contain up to 5 categories named upon request. each category will receive a different
+                marker style in the final analytical dashboard (can be found in the figure's legend).
+                Notice: pages which are hyper-links of other pages from the list should be named "Interlink".
+            <h1> </h1>
+                <b> WIKI_PAGE_URL </b> - url for the wikipedia page.
+            <h1> </h1>
+                <b> PAGE_INTERLINK </b> - if some page is a hyper-link of other page. you should specify the page url in
+                this column as well as the original page url under the "WIKI_PAGE_URL" column, and also make sure there
+                is an additional row that contain only the original page url under the "WIKI_PAGE_URL" column.
+                <h1> </h1>
+        </p>
+            <p> An example for file content is attached bellow </p>
+            </div>
+        </div>
+    </div>
+        <div class="w3-container">
+        <img class="w3-image" src="/static/page_format_example.png" alt="pf" style="width:100%">
+    <div/>
+
+
+    <!-- Footer -->
+    <footer class="w3-center w3-black w3-padding-16">
+        <p>Created by Ravit Mesika</p>
+    </footer>
+
+</body>
+</html>

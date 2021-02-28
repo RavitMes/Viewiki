@@ -1,0 +1,14 @@
+matplotlib==3.2.2
+networkx==2.4
+numpy==1.18.4
+pandas==1.0.1
+tqdm==4.46.0
+sklearn==0.0
+Flask==1.1.2
+Flask-WTF==0.14.3
+urllib3==1.25.8
+pydot==1.4.1
+Werkzeug==1.0.1
+mysql-connector-python==8.0.21
+email-validator==1.1.1
+WTForms==2.3.1
